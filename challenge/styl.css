@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('/img/computer-programming-code-online-safety-hacking-and-digital-firewall-background-3d-illustration-PRFDCP.jpg');
+    background-image: url('/challenge/img/computer-programming-code-online-safety-hacking-and-digital-firewall-background-3d-illustration-PRFDCP.jpg');
     color: #333;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-image: url('/img/otra.jpg');
+    background-image: url('/challenge/img/otra.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(120, 119, 123, 0.3);    /*le da el aspecto de transparencia */
