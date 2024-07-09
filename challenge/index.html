@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="icon" type="imag/png" href="img/loH.png">
+    <title>Encriptador y Desencriptador de Texto creado pro HAAB</title>
+   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 20px;
+        }
+        .btn {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        .form-control {
+            font-size: 18px;
+        }
+        #resultContainer {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <center><h1><strong>Encriptador creado por HAAB</strong></h1></center>
+    <!--La sigla HAAB significa Hernan Alberto Andrada Bruna quien es el creador de este programa---->
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                
+                
+                <div class="form-group">
+                    <label for="originalText"></label>
+                    <input type="text" class="form-control" id="originalText" placeholder="ingrese el texto aqui">
+                </div><br><br><br><br><br><br>
+                <br><br> <p><img src="img/circulo-mensaje-advertencia.png" alt=""><strong>Solo letras minúsculas y sin acentos</strong></p>
+                <button class="btn btn-primary" onclick="encrypt()">Encriptar</button>
+
+               
+                <button class="btn btn-secondary" onclick="decrypt()">Desencriptar</button>
+            </div>
+               
+            
+       
+           
+            <right>
+                <div class="form-group mt-4">
+                    <label for="resultText">Encriptado:</label>
+                    <input type="text" class="form-control" id="resultText" readonly>
+
+                </div>
+                 <!-- logo mio HAAB -->
+                 <img src="/img/logoH.jpg" alt="" style="width: 190px; height: 190px; border-radius: 100%;"><br>
+                <button class="btn btn-info mt-3" onclick="copyText()">Copiar</button>
+            </right>
+        </div>
+    </div>
+
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+    function encrypt() {
+   
+    let originalText = document.getElementById("originalText").value;
+    let encryptedText = encryptText(originalText);
+    document.getElementById("originalText").value = "";
+    
+    document.getElementById("resultText").value = encryptedText;
+    document.getElementById("resultTextSidebar").value = encryptedText;
+    document.getElementById("resultContainer").classList.add("active"); 
+    
+    
+    document.getElementById("originalText").value = "";
+   
+}
+
+        function decrypt() {
+            let encryptedText = document.getElementById("originalText").value;
+            let decryptedText = decryptText(encryptedText);
+            document.getElementById("resultText").value = decryptedText;
+            document.getElementById("resultTextSidebar").value = decryptedText;
+        }
+        
+        function copyText() {
+            let resultText = document.getElementById("resultText");
+            resultText.select();
+            document.execCommand("copy");
+            alert("¡Texto copiado!");
+        }
+
+        function encryptText(text) {
+            let encryptedText = text
+                .replace(/e/g, "enter")
+                .replace(/i/g, "imes")
+                .replace(/a/g, "ai")
+                .replace(/o/g, "ober")
+                .replace(/u/g, "ufat");
+
+            return encryptedText;
+        }
+
+        function decryptText(text) {
+            let decryptedText = text
+                .replace(/enter/g, "e")
+                .replace(/imes/g, "i")
+                .replace(/ai/g, "a")
+                .replace(/ober/g, "o")
+                .replace(/ufat/g, "u");
+
+            return decryptedText;
+        }
+    </script>
+    <script src="encriptar.js"></script>
+</body>
+</html>
